@@ -223,6 +223,9 @@
 - (void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker
 {
     [self.viewController dismissViewControllerAnimated:YES completion:nil];
+    
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Selection canceld"];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:callbackID];
 }
 
 @end
